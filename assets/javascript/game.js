@@ -1,14 +1,19 @@
+$( document ).ready(function() {
+$("#crystalA").attr("randomValue",Math.floor(Math.random() * 13) +1);
+$("#crystalB").attr("randomValue",Math.floor(Math.random() * 13) +1);
+$("#crystalC").attr("randomValue",Math.floor(Math.random() * 13) +1);
+$("#crystalD").attr("randomValue",Math.floor(Math.random() * 13) +1);
 //create score variable
 var score = 0;
-var randNumBtn15and100 = Math.floor(Math.random() * 101) + 15;
+var randNumBtn15and100 = Math.floor(Math.random() * 121) + 19;
 
 // create multiple javascript objects with 2 properties and 1 method
  function Crystal (name, value) {
      this.name = name;
      this.value = value;
-
+console.log(this);
  };
- var aCrystal = new Crystal ('a', 15);
+ var aCrystal = new Crystal ('a', 3);
  console.log(aCrystal);
  var bCrystal = new Crystal ('b', 5);
  console.log(bCrystal);
@@ -31,9 +36,9 @@ $('#numRand').html(randNumBtn15and100);
 
 //add on.click listener to all buttons with the class btnwrap
 $('.btnwrap').on('click', function() {
-    alert('clicked');
+    console.log($(this).attr("randomValue"));
 });
-
+});
 
 // // create a an array with 4 javascipt objects
 // var crystals = [
