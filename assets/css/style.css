@@ -51,9 +51,8 @@ p {
 
 }
 /* give score display dimensions */
-#score {
-    width: 300px;
-    height: 100px;
+.score {
+    display: inline-block;
     background-color: black;
     color: white;
     font-size: 75px;

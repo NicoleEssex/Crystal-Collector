@@ -1,66 +1,60 @@
-$( document ).ready(function() {
-$("#crystalA").attr("randomValue",Math.floor(Math.random() * 13) +1);
-$("#crystalB").attr("randomValue",Math.floor(Math.random() * 13) +1);
-$("#crystalC").attr("randomValue",Math.floor(Math.random() * 13) +1);
-$("#crystalD").attr("randomValue",Math.floor(Math.random() * 13) +1);
-//create score variable
-var score = 0;
-var randNumBtn15and100 = Math.floor(Math.random() * 121) + 19;
-
-// create multiple javascript objects with 2 properties and 1 method
- function Crystal (name, value) {
-     this.name = name;
-     this.value = value;
-console.log(this);
- };
- var aCrystal = new Crystal ('a', 3);
- console.log(aCrystal);
- var bCrystal = new Crystal ('b', 5);
- console.log(bCrystal);
- var cCrystal = new Crystal ('c', 10);
- console.log(cCrystal);
- var dCrystal = new Crystal ('d', 2);
-console.log(dCrystal);
-
-
+// Run code
+// $( window ).load(function() {
+var randNumBtn15and100;
+var crystalSum;
 // Use a function to initialize users score and random number
-function resetGame() {
-    $('#score').empty();
-   $('#numRand').empty();
+function startGame() {
+    $('#score').html('0');
+    // create random number variable between 19 and 120.
+    randNumBtn15and100 = Math.floor(Math.random() * 121) + 19;
+    // generate random number in html element id randNum when page loads
+    $('#numRand').html(randNumBtn15and100);
+    //create variables for each crystal
+    var crystalA = $("#crystalA");
+    var crystalB = $("#crystalB");
+    var crystalC = $("#crystalC");
+    var crystalD = $("#crystalD");
+    // variable of each crystal + previous crystal
+    crystalSum = 0;
+    // assigned random value attribute to each id crystal button between the numbers 1 and 12 each time the page loads
+    $("#crystalA").attr("randomValue", Math.floor(Math.random() * 13) + 1);
+    $("#crystalB").attr("randomValue", Math.floor(Math.random() * 13) + 1);
+    $("#crystalC").attr("randomValue", Math.floor(Math.random() * 13) + 1);
+    $("#crystalD").attr("randomValue", Math.floor(Math.random() * 13) + 1);
 }
 
-// generate random number in html element id randNum when page loads
-$('#numRand').html(randNumBtn15and100);
-
-
+startGame();
 
 //add on.click listener to all buttons with the class btnwrap
-$('.btnwrap').on('click', function() {
-    console.log($(this).attr("randomValue"));
-});
+$('.btnwrap').on('click', function (event) {
+    // console.log($(this).attr("randomValue"));
+    var randCrysNum = parseInt($(this).attr("randomValue"));
+    console.log("randcrysnum - "+randCrysNum);
+    console.log("crystalsum- "+crystalSum);
+    console.log("this attr randomvalue - "+ $(this).attr("randomValue"));
+    crystalSum += randCrysNum;
+    if(crystalSum === randNumBtn15and100){
+        $('.score').html('you win');
+        startGame();
+    }   
+    else if(crystalSum < randNumBtn15and100){
+        
+        $('#score').html(crystalSum);
+        
+    }
+    else {
+        var lose = $('span');
+        $(lose).html('you lose');
+        $('.score').append(lose);
+        setTimeout(startGame, 2000);
+    }
+
+ 
+    
 });
 
-// // create a an array with 4 javascipt objects
-// var crystals = [
-//     {
-//         name: "crystalA",
-//         value: "15",
-//     },
-//     {
-//         name: "crystalB",
-//         value: "5",
-//     },
-//     {
-//         name: "crystalC",
-//         value: "10",
-//     },
-//     {
-//         name: "crystalD",
-//         value: "2",
-//     }
-// ];
-// //  console log 2 properties for each object in array
-// for (var i=0; i<crystals; i++) {
-//     console.log(crystals[i].name);
-//     console.log(crystals[i].value);
-// }
+    
+
+
+
+
