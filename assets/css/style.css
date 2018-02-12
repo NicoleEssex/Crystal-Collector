@@ -59,7 +59,33 @@ p {
     position: relative;
     top: 50px;
 }
-.main{
+.main {
     position: relative;
     top: 140px;
 }
+.gamesPlayed {
+    position: relative;
+    top: 75px;
+}
+
+#gamesWon {
+    padding: 0px 25px;
+}
+
+#gamesLost {
+    padding: 0px 25px;
+}
+
+.numGamesPlayed {
+    position: relative;
+    top: 93px;
+}
+
+#numGamesWon {
+    padding: 0px 143px;
+}
+
+#numGamesLost {
+    padding: 0px 124px;
+}
+
