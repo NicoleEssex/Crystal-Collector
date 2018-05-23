@@ -1,5 +1,4 @@
-// Run code
-// $( window ).load(function() {
+
 var randNumBtn15and100;
 var crystalSum;
 var winCount = 0;
@@ -31,7 +30,6 @@ startGame();
 
 //add on.click listener to all buttons with the class btnwrap
 $('.btnwrap').on('click', function (event) {
-    // console.log($(this).attr("randomValue"));
     var randCrysNum = parseInt($(this).attr("randomValue"));
     console.log("randcrysnum - "+randCrysNum);
     console.log("crystalsum - "+crystalSum);

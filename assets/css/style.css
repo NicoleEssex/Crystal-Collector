@@ -1,11 +1,10 @@
 /* button image size */
 
 body {
-    background-image: url(../images/Geode.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
-    background-blend-mode: screen;
     text-align: center;
+}
+.header p {
+    color: black;
 }
 h1  {
     font-size: 100px;
